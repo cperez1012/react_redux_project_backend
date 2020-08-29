@@ -2,7 +2,11 @@ class Api::V1::FightersController < ApplicationController
 
     def index
         fighters = Fighter.all
-        render json: fighters
+        options = {
+          #include associated List
+          include: [:list]
+        }
+        render json: FighterSerializer.new(@fighters, options)
     end
 
     def create
