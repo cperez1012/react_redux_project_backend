@@ -1,4 +1,6 @@
 class ListSerializerSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :title, :user_id
+  has_many :fighters
+  belongs_to :user
 end
