@@ -10,6 +10,10 @@ class CreateFighters < ActiveRecord::Migration[6.0]
       t.string :reach
       t.string :status
       t.boolean :champion
+      t.integer :win
+      t.integer :loss
+      t.integer :draw
+      t.integer :ko
 
       t.timestamps
     end
