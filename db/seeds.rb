@@ -10,4 +10,4 @@ User.new(username: 'cperez', email: 'perezchristian@gmail.com', password_digest:
 
 Fighter.new(name: 'Tyson Fury', alias: 'The Gypsy King', nationality: 'The United Kingdom', division: 'Heavyweight', stance: 'orthodox', height: '6′ 9″', reach: '85″', status: 'active', champion: true, win: 30, loss: 0, draw: 1, ko: 21, list_id: 1)
 
-List.new(title: 'Favorite Fighters', user_id: 1, fighter_id: 1)
+List.new(title: 'Favorite Fighters', user_id: 1, fighter_id: fighter.id)
