@@ -20,10 +20,6 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
-    def profile
-
-    end
-
     # def update
     #     if @user.update(user_params)
     #         render json: UserSerializer.new(@user)
