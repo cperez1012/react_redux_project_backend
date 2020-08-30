@@ -1,7 +1,7 @@
 class Api::V1::FightersController < ApplicationController
 
     def index
-        fighters = Fighter.all
+        @fighters = Fighter.all
         options = {
           #include associated List
           include: [:list]
@@ -10,11 +10,11 @@ class Api::V1::FightersController < ApplicationController
     end
 
     def create
-        fighter = Fighter.new(fighter_params)
-        if fighter.save
-          render json: fighter, status: :accepted
+        @fighter = Fighter.new(fighter_params)
+        if @fighter.save
+          render json: FighterSerializer.new(@fighter), status: :accepted
         else
-          render json: {errors: fighter.errors.full_messages}, status: :unprocessible_entity
+          render json: {errors: @fighter.errors.full_messages}, status: :unprocessible_entity
         end
     end
 
