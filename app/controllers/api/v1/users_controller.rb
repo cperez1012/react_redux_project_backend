@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    before_action :set_user, only: [:show, :update]
+    # before_action :set_user, only: [:show, :update]
 
     # def index
     #     # @users = User.all
@@ -18,6 +18,10 @@ class Api::V1::UsersController < ApplicationController
         else
             render json: { error: 'failed to create user' }, status: :not_acceptable
         end
+    end
+
+    def profile
+
     end
 
     # def update
