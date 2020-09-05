@@ -1,21 +1,30 @@
+require 'pry'
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create]
+    # skip_before_action :authorized, only: [:create]\
+    before_action :set_user, only: [:show]
 
-    # def index
-    #     # @users = User.all
-    #     @users = User.all
-    #     render json: UserSerializer.new(@users)
-    # end
+    # GET /users
+    def index
+        # @users = User.all
+        @users = User.all
+        render json: @users
+        # render json: UserSerializer.new(@users)
+    end
 
-    # def show
-    #     @user = User.find(params[:id])
-    # end
+    def show
+        # @user = User.find(params[:id])
+        user_json = UserSerializer.new(@user).serialized_json
+        # binding.pry
+        render json: user_json
+    end
 
     def create
         @user = User.new(user_params)
-        if @user.valid?
-            @token = encode_token(user_id: @user.id)
-            render json: { user: UserSerializer.new(@user) }, status: :created
+        if @user.save
+        # if @user.valid?
+            # @token = encode_token(user_id: @user.id)
+            # render json: { user: UserSerializer.new(@user) }, status: :created
+            render json: @user, status: :created, location: @user
         else
             render json: { error: 'failed to create user' }, status: :not_acceptable
         end
@@ -44,9 +53,10 @@ class Api::V1::UsersController < ApplicationController
 
     private
 
-    # def set_user
-    #     @user = User.find_by(id: params[:id])
-    # end
+    def set_user
+        # @user = User.find_by(id: params[:id])
+        @user = User.find_by(id: params[:id])
+    end
 
     def user_params
         params.require(:user).permit(:username, :email, :password, :bio, :image_url)
