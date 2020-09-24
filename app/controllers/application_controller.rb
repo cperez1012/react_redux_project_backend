@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-
+    include ::ActionController::Cookies
     # helpers do
     # before_action :authorized
 
@@ -32,17 +32,17 @@ class ApplicationController < ActionController::API
     #   end
     # end
   
-    def logged_in?
-      !!current_user
-    end
-  
     # def authorized
     #   render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
     # end
 
-        def current_user
+    def current_user
             #currently a mock version of logged in
-            User.first
-        end
+        User.find_by(id: session[:user_id])
+    end
+
+    def logged_in?
+        !!current_user
+    end
     # end
 end
