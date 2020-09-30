@@ -1,8 +1,17 @@
 class Api::V1::ListsController < ApplicationController
 
     def index
-        @lists = List.all
-        render json: ListSerializer.new(@lists)
+        if logged_in?
+
+            @lists = current_user.lists
+
+            render json: ListSerializer.new(@lists)
+        else
+            render json: {
+                error: "You must be logged in to see lists"
+            }
+        end
+
     end
 
     # def create
