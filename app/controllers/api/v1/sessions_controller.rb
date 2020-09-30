@@ -5,7 +5,7 @@ class Api::V1::SessionsController < ApplicationController
 
         if @user && @user.authenticate(params[:session][:password])
             session[:user_id] = @user.id
-            render json: @user
+            render json: UserSerializer.new(@user)
 
         else
             render json: {
@@ -30,6 +30,6 @@ class Api::V1::SessionsController < ApplicationController
         session.clear
         render json: [
             notice: "Successfully Logged Out!"
-        ]
+        ], status: :ok
     end
 end
