@@ -17,6 +17,20 @@ christian = User.first
 
 favorite = List.create(title: 'Favorite Fighters', user_id: christian.id)
 
-Fighter.create(name: 'Tyson Fury', alias: 'The Gypsy King', nationality: 'The United Kingdom', division: 'Heavyweight', stance: 'orthodox', height: '6′ 9″', reach: '85″', status: 'active', champion: true, win: 30, loss: 0, draw: 1, ko: 21, list_id: favorite.id)
+lb = List.create(title: 'Pound for Pound', user_id: christian.id)
 
-tyson = Fighter.first
+tyson_fury = Fighter.create(name: 'Tyson Fury', alias: 'The Gypsy King', nationality: 'The United Kingdom', division: 'Heavyweight', stance: 'orthodox', height: '6′ 9″', reach: '85″', status: 'active', champion: true, win: 30, loss: 0, draw: 1, ko: 21, list_id: favorite.id)
+
+canelo = Fighter.create(name: 'Saul Alvarez', alias: 'Canelo', nationality: 'Mexico', division: 'Middleweight', stance: 'orthodox', height: '5′ 8″', reach: '70.5″', status: 'active', champion: true, win: 53, loss: 1, draw: 2, ko: 36, list_id: lb.id)
+
+bud = Fighter.create(name: 'Terence Crawford', alias: 'Bud', nationality: 'USA', division: 'Welterweight', stance: 'southpaw', height: '5′ 8″', reach: '74″', status: 'active', champion: true, win: 36, loss: 0, draw: 0, ko: 27, list_id: 3)
+
+deontay = Fighter.create(name: 'Deontay Wilder', alias: 'The Bronze Bomber', nationality: 'USA', division: 'Heavyweight', stance: 'orthodox', height: '6′ 7″', reach: '83″', status: 'active', champion: false, win: 42, loss: 1, draw: 1, ko: 41, list_id: favorite.id)
+
+hi_tech = Fighter.create(name: 'Vasyl Lomachenko', alias: 'Hi-Tech', nationality: 'Ukraine', division: 'Lightweight', stance: 'southpaw', height: '5′ 7″', reach: '65.5″', status: 'active', champion: true, win: 14, loss: 1, draw: 0, ko: 10, list_id: lb.id)
+
+ggg = Fighter.create(name: 'Gennadiy Golovkin', alias: 'GGG', nationality: 'Kazakhstan', division: 'Middleweight', stance: 'orthodox', height: '5′ 10.5″', reach: '70″', status: 'active', champion: true, win: 14, loss: 1, draw: 0, ko: 10, list_id: favorite.id)
+
+errol_spence = Fighter.create(name: 'Errol Spence Jr', alias: 'The Truth', nationality: 'USA', division: 'Welterweight', stance: 'southpaw', height: '5′ 9.5″', reach: '72″', status: 'active', champion: true, win: 26, loss: 0, draw: 0, ko: 21, list_id: lb.id)
+
+monster = Fighter.create(name: 'Naoya Inoue', alias: 'Monster', nationality: 'Japan', division: 'Bantamweight', stance: 'orthodox', height: '5′ 5″', reach: '67.5″', status: 'active', champion: true, win: 19, loss: 0, draw: 0, ko: 16, list_id: favorite.id)
