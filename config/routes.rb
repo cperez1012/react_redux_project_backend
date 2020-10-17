@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users do
-        resources :lists, only: [:index]
+        resources :lists do
+          resources :fighters
 
       
       # post '/login', to: 'auth#create'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
       # do
         # resources :lists, only: [:index]
         # resources :fighters, only: [:index, :create]
+        end
       end
     end
   end
