@@ -1,4 +1,5 @@
 class Api::V1::ListsController < ApplicationController
+    before_action :set_list, only: [:show, :update, :destroy]
 
     def index
         if logged_in?
@@ -14,13 +15,53 @@ class Api::V1::ListsController < ApplicationController
 
     end
 
-    # def create
-    #     @list = List.new(list_params)
-    #     if @list.save
-    #         render json: ListSerializer.new(@list)
-    #     else
-    #         render json: ListSerializer.new(@list.errors), status: 400
-    #     end
-    # end
-    
+    def show
+        render json: @list
+    end
+
+    def create
+        # @list = List.new(list_params)
+        @list = current_user.lists.build(list_params)
+        if @list.save
+            render json: ListSerializer.new(@list), status: :created
+        else
+            error_resp = {
+                error: @list.errors.full_messages.to_sentence
+                }
+            render json: error_resp, status: :unprocessable_entity
+        end
+    end
+
+    def update
+        if @list.update(list_params)
+            render json: ListSerializer.new(@list), status: :ok
+        else
+            error_resp = {
+                error: @list.errors.full_messages.to_sentence
+              }
+            render json: error_resp, status: :unprocessable_entity 
+        end       
+    end
+
+    def destroy
+        if @list.destroy
+            render json: { data: "List was successfully deleted!" }, status: :ok
+        else
+            error_resp = {
+                error: "List not found and not deleted!"
+              }
+            render json: error_resp, status: :unprocessable_entity
+        end 
+    end
+   
+    private
+
+    def set_list
+        @list = List.find(params[:id])
+    end
+
+    def list_params
+       params.require(:list).permit(:title) 
+    end
+
 end
