@@ -11,7 +11,7 @@ List.destroy_all
 Fighter.destroy_all
 
 
-User.create(username: 'cperez', email: 'perezchristian@gmail.com', password: '1234', image_url: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-19/s320x320/12142387_725025870974201_1307390926_a.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_ohc=VJriPRRgHPIAX-J53M-&oh=d735ff3aea02f42a36a79f4166be193d&oe=5F7215EC', bio: 'I enjoy watching the sport of boxing!')
+User.create(username: 'cperez', email: 'perezchristian@gmail.com', password: '1234', image_url: 'https://media-exp1.licdn.com/dms/image/C4D03AQEJIcRn6nUGcQ/profile-displayphoto-shrink_400_400/0?e=1608768000&v=beta&t=j35SWj3PsRchnrU5jXCeYNcPvzmve9_pyS0yhnApnd8', bio: 'I enjoy watching the sport of boxing!')
 
 christian = User.first
 
@@ -34,3 +34,5 @@ ggg = Fighter.create(name: 'Gennadiy Golovkin', alias: 'GGG', nationality: 'Kaza
 errol_spence = Fighter.create(name: 'Errol Spence Jr', alias: 'The Truth', nationality: 'USA', division: 'Welterweight', stance: 'southpaw', height: '5′ 9.5″', reach: '72″', status: 'active', champion: true, win: 26, loss: 0, draw: 0, ko: 21, list_id: lb.id)
 
 monster = Fighter.create(name: 'Naoya Inoue', alias: 'Monster', nationality: 'Japan', division: 'Bantamweight', stance: 'orthodox', height: '5′ 5″', reach: '67.5″', status: 'active', champion: true, win: 19, loss: 0, draw: 0, ko: 16, list_id: favorite.id)
+
+sweet_pea = Fighter.create(name: 'Pernell Whitaker', alias: 'Sweet Pea', nationality: 'USA', division: 'Welterweight', stance: 'southpaw', height: '5′ 6″', reach: '69″ ', status: 'iactive', champion: true, win: 40, loss: 4, draw: 1, ko: 17, list_id: favorite.id))
