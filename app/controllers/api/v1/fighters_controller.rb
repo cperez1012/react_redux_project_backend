@@ -1,5 +1,6 @@
+require 'pry'
 class Api::V1::FightersController < ApplicationController
-  before_action :set_fighter
+  before_action :set_fighter, only: [:show, :update, :destroy]
 
     def index
       if logged_in?
