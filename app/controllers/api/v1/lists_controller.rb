@@ -6,7 +6,7 @@ class Api::V1::ListsController < ApplicationController
 
             @lists = current_user.lists
 
-            render json: ListSerializer.new(@lists)
+            render json: ListSerializer.new(@lists, {include: [:fighters]}).serialized_json
         else
             render json: {
                 error: "You must be logged in to see lists"
