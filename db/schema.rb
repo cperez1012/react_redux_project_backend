@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_30_111122) do
+ActiveRecord::Schema.define(version: 2020_10_26_143921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 2020_08_30_111122) do
     t.index ["list_id"], name: "index_fighters_on_list_id"
   end
 
+  create_table "fighters_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "fighter_id", null: false
+    t.index ["fighter_id", "user_id"], name: "index_fighters_users_on_fighter_id_and_user_id"
+    t.index ["user_id", "fighter_id"], name: "index_fighters_users_on_user_id_and_fighter_id"
+  end
+
   create_table "lists", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
@@ -51,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_08_30_111122) do
     t.string "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "fighter_id"
   end
 
   add_foreign_key "fighters", "lists"
