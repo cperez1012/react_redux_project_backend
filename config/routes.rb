@@ -8,16 +8,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users do
-        resources :lists do
-          resources :fighters
-
-      
-      # post '/login', to: 'auth#create'
-      # get '/profile', to: 'users#profile' 
-      # do
-        # resources :lists, only: [:index]
-        # resources :fighters, only: [:index, :create]
-        end
+        resources :lists
+        resources :fighters
       end
     end
   end

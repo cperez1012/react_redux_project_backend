@@ -35,4 +35,4 @@ errol_spence = Fighter.create(name: 'Errol Spence Jr', alias: 'The Truth', natio
 
 monster = Fighter.create(name: 'Naoya Inoue', alias: 'Monster', nationality: 'Japan', division: 'Bantamweight', stance: 'orthodox', height: '5′ 5″', reach: '67.5″', status: 'active', champion: true, win: 19, loss: 0, draw: 0, ko: 16, list_id: favorite.id)
 
-sweet_pea = Fighter.create(name: 'Pernell Whitaker', alias: 'Sweet Pea', nationality: 'USA', division: 'Welterweight', stance: 'southpaw', height: '5′ 6″', reach: '69″ ', status: 'iactive', champion: true, win: 40, loss: 4, draw: 1, ko: 17, list_id: favorite.id))
+sweet_pea = Fighter.create(name: 'Pernell Whitaker', alias: 'Sweet Pea', nationality: 'USA', division: 'Welterweight', stance: 'southpaw', height: '5′ 6″', reach: '69″ ', status: 'iactive', champion: true, win: 40, loss: 4, draw: 1, ko: 17, list_id: favorite.id)
