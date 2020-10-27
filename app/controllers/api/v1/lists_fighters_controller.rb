@@ -1,0 +1,2 @@
+class ListsFightersController < ApplicationController
+end
