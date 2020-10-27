@@ -1,4 +1,4 @@
 class Fighter < ApplicationRecord
-    belongs_to :list
-    belongs_to :user
+    belongs_to :lists_fighter
+    # belongs_to :user
 end

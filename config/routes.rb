@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :users do
         resources :lists
         resources :fighters
+        resources :lists_fighters
       end
     end
   end

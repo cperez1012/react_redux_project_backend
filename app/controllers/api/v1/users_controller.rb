@@ -62,6 +62,7 @@ class Api::V1::UsersController < ApplicationController
 
     def set_user
         # @user = User.find_by(id: params[:id])
+        # binding.pry
         @user = User.find(params[:id])
     end
 
