@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ListsFighterTest < ActiveSupport::TestCase
+class Api::V1::FighterlistsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

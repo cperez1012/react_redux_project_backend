@@ -3,21 +3,11 @@ class Api::V1::FightersController < ApplicationController
   before_action :set_fighter, only: [:show, :update, :destroy]
 
     def index
-      if logged_in?
-        # @fighters = Fighter.all
-        @fighters = current_user.fighters
-        # binding.pry
-        # options = {
-        #   #include associated List
-        #   include: [:list]
-        # }
-        # render json: FighterSerializer.new(@fighters, options)
+      # Needs to be array of fighters in db
+        binding.pry
+        @fighters = Fighter.all
+
         render json: FighterSerializer.new(@fighters)
-      else
-        render json: {
-          error: "You must be logged in to see your chosen fighters"
-        }
-      end
     end
 
     def show
@@ -25,8 +15,8 @@ class Api::V1::FightersController < ApplicationController
     end
 
     def create
-        # @fighter = Fighter.new(fighter_params)
-        @fighter = current_user.fighters.build(fighter_params)
+      # Use find by or create by to prevent duplicates
+        @fighter = Fighter.find_or_create_by(fighter_params)
         # binding.pry
         if @fighter.save
           render json: FighterSerializer.new(@fighter).serialized_json, status: :accepted

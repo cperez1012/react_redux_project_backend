@@ -5,7 +5,6 @@ class Api::V1::UsersController < ApplicationController
 
     # GET /users
     def index
-        # @users = User.all
         @users = User.all
         render json: @users
         # render json: UserSerializer.new(@users)
@@ -49,20 +48,9 @@ class Api::V1::UsersController < ApplicationController
         @user.destroy
     end
 
-    # def find
-    #     @user = User.find_by(email: params[:user][:email])
-    #     if @user
-    #         render json: UserSerializer.new(@user)
-    #     else
-    #         render json: UserSerializer.new(@user.errors.full_messages)
-    #     end
-    # end
-
     private
 
     def set_user
-        # @user = User.find_by(id: params[:id])
-        # binding.pry
         @user = User.find(params[:id])
     end
 
