@@ -4,7 +4,7 @@ class Api::V1::FightersController < ApplicationController
 
     def index
       # Needs to be array of fighters in db
-        binding.pry
+        # binding.pry
         @fighters = Fighter.all
 
         render json: FighterSerializer.new(@fighters)
@@ -16,7 +16,7 @@ class Api::V1::FightersController < ApplicationController
 
     def create
       # Use find by or create by to prevent duplicates
-        @fighter = Fighter.find_or_create_by(fighter_params)
+        @fighter = Fighter.new(fighter_params)
         # binding.pry
         if @fighter.save
           render json: FighterSerializer.new(@fighter).serialized_json, status: :accepted
@@ -44,7 +44,7 @@ class Api::V1::FightersController < ApplicationController
     end
 
     def fighter_params
-        params.require(:fighter).permit(:name, :alias, :nationality, :division, :stance, :height, :reach, :status, :champion, :win, :loss, :draw, :ko, :list_id)
+      params.require(:fighter).permit(:name, :alias, :nationality, :division, :stance, :height, :reach, :status, :champion, :win, :loss, :draw, :ko, :list_id)
     end
 
 end
