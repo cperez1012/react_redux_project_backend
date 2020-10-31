@@ -1,8 +1,8 @@
 class Api::V1::FighterlistsController < ApplicationController
 
-    # def index
-    #     @fighterlists = Fighterlists.all
-    # end
+    def index
+        @fighterlists = Fighterlists.all
+    end
 
     # def show
 
