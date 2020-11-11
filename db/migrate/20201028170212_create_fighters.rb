@@ -14,6 +14,7 @@ class CreateFighters < ActiveRecord::Migration[6.0]
       t.integer :loss
       t.integer :draw
       t.integer :ko
+      t.references :list, null: false, foreign_key: true
 
       t.timestamps
     end

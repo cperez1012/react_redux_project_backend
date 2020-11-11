@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :lists, dependent: :destroy
-    has_many :fighterlists, through: :lists
+    has_many :fighters, through: :lists
 
-    validates :email, uniqueness: { case_sensitive: false }
+    validates :email, uniqueness: true
 end

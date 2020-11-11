@@ -1,6 +1,5 @@
 class Fighter < ApplicationRecord
-    has_many :fighterlists
-    has_many :lists, through: :fighterlists
+    belongs_to :list
 
-    validates :name, uniqueness: { case_sensitive: false }
+    validates_presence_of :title
 end
