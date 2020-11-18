@@ -56,6 +56,7 @@ class Api::V1::FightersController < ApplicationController
 
     def destroy
       @fighter.destroy
+      render json: FighterSerializer.new(@fighter), status: :ok
     end
 
     private
@@ -65,7 +66,7 @@ class Api::V1::FightersController < ApplicationController
     end
 
     def fighter_params
-      params.require(:fighter).permit(:name, :alias, :nationality, :division, :stance, :height, :reach, :status, :champion, :win, :loss, :draw, :ko)
+      params.require(:fighter).permit(:name, :alias, :nationality, :division, :stance, :height, :reach, :status, :champion, :win, :loss, :draw, :ko, :list_id)
     end
 
 end
