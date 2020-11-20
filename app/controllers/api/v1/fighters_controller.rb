@@ -5,14 +5,7 @@ class Api::V1::FightersController < ApplicationController
     def index
       if logged_in?
 
-      # Needs to be array of fighters in db
-        # binding.pry
-        # @list = List.find(params[:list_id])
-        # @list = List.find(params[:list_id])
-        @fighters = current_user.fighters
-        # @fighters = Fighter.all.sort_by{ |f| f.name }
-
-        # render json: Fighter.new(@fighters)
+        @fighters = current_user.fighters.sort_by{ |fighter| fighter.name }
 
         render json: FighterSerializer.new(@fighters).serialized_json
       else
@@ -22,41 +15,32 @@ class Api::V1::FightersController < ApplicationController
       end
     end
 
-    # def new
-    #   @list = List.find(params[:list_id])
-    #   @fighters = @list.fighters.build
-    #   render json: FighterSerializer.new(@fighters)
-    # end
-
     def show
       render json: @fighter
     end
 
     def create
-        @list = List.find(params[:list_id])
-      # Use find by or create by to prevent duplicates
-        @fighter = @list.fighters.build(fighter_params)
+        @fighter = Fighter.create(fighter_params)
         # binding.pry
         if @fighter.save
-          # render json: Fighter.new(@fighter), status: :accepted
-          render json: FighterSerializer.new(@fighter).serialized_json, status: :accepted
+      
+          render json: FighterSerializer.new(@fighter).serialized_json, status: :created
         else
-          render json: {errors: @fighter.errors.full_messages}, status: :unprocessible_entity
+          render json: {errors: @fighter.errors.full_messages}, status: :unprocessable_entity
         end
     end
 
     def update
       if @fighter.update(fighter_params)
-        # render json: Fighter.new(@fighter), status: :ok
+        
         render json: FighterSerializer.new(@fighter), status: :ok
       else
-        render json: @fighter.errors, status: :unprocessible_entity
+        render json: @fighter.errors, status: :unprocessable_entity
       end
     end
 
     def destroy
       @fighter.destroy
-      render json: FighterSerializer.new(@fighter), status: :ok
     end
 
     private
