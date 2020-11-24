@@ -41,6 +41,9 @@ class Api::V1::FightersController < ApplicationController
 
     def destroy
       @fighter.destroy
+      render json: [
+        notice: "Successfully Deleted Fighter!"
+      ], status: :ok
     end
 
     private
