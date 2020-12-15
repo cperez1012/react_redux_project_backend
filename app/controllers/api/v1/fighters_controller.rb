@@ -21,7 +21,7 @@ class Api::V1::FightersController < ApplicationController
 
     def create
         @fighter = Fighter.create(fighter_params)
-        # binding.pry
+
         if @fighter.save
       
           render json: FighterSerializer.new(@fighter).serialized_json, status: :created
