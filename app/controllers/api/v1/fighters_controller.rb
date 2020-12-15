@@ -53,7 +53,7 @@ class Api::V1::FightersController < ApplicationController
     end
 
     def fighter_params
-      params.require(:fighter).permit(:name, :alias, :nationality, :division, :stance, :height, :reach, :status, :champion, :win, :loss, :draw, :ko, :list_id)
+      params.require(:fighter).permit(:name, :alias, :nationality, :division, :stance, :height, :reach, :status, :champion, :win, :loss, :draw, :ko, :list_id, :upvote)
     end
 
 end
