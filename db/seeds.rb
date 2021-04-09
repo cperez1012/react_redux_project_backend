@@ -10,7 +10,7 @@ User.destroy_all
 List.destroy_all
 Fighter.destroy_all
 
-User.create(username: 'cperez', email: 'perezchristian@gmail.com', password: '1234', image_url: 'https://media-exp1.licdn.com/dms/image/C4D03AQEJIcRn6nUGcQ/profile-displayphoto-shrink_400_400/0?e=1608768000&v=beta&t=j35SWj3PsRchnrU5jXCeYNcPvzmve9_pyS0yhnApnd8', bio: 'I enjoy watching the sport of boxing!')
+User.create(username: 'cperez', email: 'perezchristian@gmail.com', password: '1234', imageurl: 'https://media-exp1.licdn.com/dms/image/C4D03AQEJIcRn6nUGcQ/profile-displayphoto-shrink_400_400/0?e=1608768000&v=beta&t=j35SWj3PsRchnrU5jXCeYNcPvzmve9_pyS0yhnApnd8', bio: 'I enjoy watching the sport of boxing!')
 
 christian = User.first
 
