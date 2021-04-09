@@ -2,8 +2,23 @@
 
 The Boxing Fan App is a web application built using Ruby on Rails for the backend and React Redux for the frontend. 
 The Boxing Fan App runs on ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-linux]
-This web application is for users who want to create fun and creative lists for fighters. For example, I want to create a list of all the favorite fighters I like. You can add fighters to your list by simply going to the Add New Fighters route and fill out the form and choose which list you would like that fighter to be associated with.
+
+The Boxing Fan App was created using React Redux for the frontend and Ruby on Rails for the backend. Users can create various lists of there favorite fighters in boxing. Users must first create a list in order to add fighters. Users will need to input all information detailing the fighter's height, weight, wins, losses, draws, country of origin, etc. 
+
+Technologies Used
+
+-React.js
+-Redux to manage state.
+-Incorporates React Router for multiple routes purpose.
 
 Installation
+
+Please fork, clone or download the backend from in order to use Boxing Fan App.
+
 Backend repo: https://github.com/cperez1012/react_redux_project_backend
 Frontend repo: https://github.com/cperez1012/react-redux-project-frontend
+
+-Install Postgres on your computer
+-Run bundle install
+
+in your terminal on the command line create the database by running rails db:create
