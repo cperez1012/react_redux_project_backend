@@ -1,7 +1,9 @@
 class CreateFighters < ActiveRecord::Migration[6.0]
   def change
     create_table :fighters do |t|
+      t.integer :ranking
       t.string :name
+      t.string :imageurl
       t.string :alias
       t.string :nationality
       t.string :division

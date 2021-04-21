@@ -5,7 +5,7 @@ class Api::V1::FightersController < ApplicationController
     def index
       if logged_in?
 
-        @fighters = current_user.fighters.sort_by{ |fighter| fighter.name }
+        @fighters = current_user.fighters.sort_by{ |fighter| fighter.ranking }
 
         render json: FighterSerializer.new(@fighters).serialized_json
       else
@@ -53,7 +53,7 @@ class Api::V1::FightersController < ApplicationController
     end
 
     def fighter_params
-      params.require(:fighter).permit(:name, :alias, :nationality, :division, :stance, :height, :reach, :status, :champion, :win, :loss, :draw, :ko, :list_id, :upvote)
+      params.require(:fighter).permit(:name, :imageurl, :alias, :nationality, :division, :stance, :height, :reach, :status, :champion, :win, :loss, :draw, :ko, :list_id, :ranking)
     end
 
 end
