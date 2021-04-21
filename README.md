@@ -1,5 +1,7 @@
 # BOXING FAN APP
 
+![](BoxingFanApp.gif)
+
 The Boxing Fan App is a web application built using Ruby on Rails for the backend and React Redux for the frontend. 
 The Boxing Fan App runs on ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-linux]
 
