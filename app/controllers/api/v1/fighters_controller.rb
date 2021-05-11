@@ -23,6 +23,8 @@ class Api::V1::FightersController < ApplicationController
         @fighter = Fighter.create(fighter_params)
 
         if @fighter.save
+
+          binding.pry
       
           render json: FighterSerializer.new(@fighter).serialized_json, status: :created
         else
