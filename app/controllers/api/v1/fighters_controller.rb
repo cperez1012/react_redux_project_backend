@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 class Api::V1::FightersController < ApplicationController
   before_action :set_fighter, only: [:show, :update, :destroy]
 

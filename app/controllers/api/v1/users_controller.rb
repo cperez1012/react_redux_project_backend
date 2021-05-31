@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 class Api::V1::UsersController < ApplicationController
 
     before_action :set_user, only: [:show, :update, :destroy]
