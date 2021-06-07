@@ -14,4 +14,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  match '*_missing_page', to: 'pages#not_found', via: :get
 end 
